@@ -1,0 +1,23 @@
+{
+  "name": "discordAutoPublish",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sneaks-Community/discordAutoPublish.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sneaks-Community/discordAutoPublish/issues"
+  },
+  "homepage": "https://github.com/Sneaks-Community/discordAutoPublish#readme",
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  }
+}
