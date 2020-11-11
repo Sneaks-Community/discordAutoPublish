@@ -30,7 +30,7 @@ bot.on("message", message => {
     }
 })
 
-function run() {
+async function run() {
     //let pushArr = queue.slice(0, 10);
 
     console.log("start")
@@ -46,11 +46,8 @@ function run() {
         // let i = 0;
 
         for(let i = 0; i < pushArr.length; i++) {
-        // while (i < pushArr.length) {
-            setTimeout(() => {
-                pushArr[i].crosspost().catch(err => { console.log(err) });
-            }, 5000);
-            // i++;
+            await sleep(2000);
+            pushArr[i].crosspost().catch(err => console.error)
         }
 
 
@@ -58,3 +55,7 @@ function run() {
     console.timeEnd("start")
     //console.log(Object.keys(queue).length)
 }
+
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  }
