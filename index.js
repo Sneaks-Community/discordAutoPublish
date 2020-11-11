@@ -19,7 +19,7 @@ bot.on("ready", () => {
     
 
     // bot.setInterval(run, 3660000)
-    bot.setInterval(run, 90000)
+    bot.setInterval(run, 45000)
 })
 
 bot.on("message", message => {
@@ -41,21 +41,16 @@ async function run(){
         queue[channel] = queue[channel].slice(10);
         console.log("whats left: " + queue[channel])
 
-        let i = 0
+        //console.table(pushArr)
 
-        let push = () => {
-            pushArr[i].crosspost().catch(err => {
-                console.log(err);
-            })
-            i++;
-        }
 
-        bot.setInterval(push, 1500);
+        for(let i = 0; i < pushArr.length; i++) {
+            setTimeout(async () => {
+              pushArr[i].crosspost().catch(err => {console.log(err)});
+            }, 1500);
+          }
 
-        if(i == 9){
-            bot.clearInterval(push);
-            continue;
-        }
+        
     }
     console.timeEnd("start")
     //console.log(Object.keys(queue).length)
