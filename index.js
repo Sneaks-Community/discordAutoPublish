@@ -19,6 +19,7 @@ bot.on("ready", () => {
     
 
     bot.setInterval(run, 3600000)
+    // bot.setInterval(run, 45000)
 })
 
 bot.on("message", message => {
@@ -37,6 +38,7 @@ async function run(){
 
     for(let channel in queue){
         let pushArr = queue[channel].slice(0, 10);
+        queue[channel] = queue[channel].slice(10);
 
         for(let m of pushArr){
             await m.crosspost().catch(err => {
